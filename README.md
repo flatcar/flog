@@ -16,3 +16,9 @@ Starting with a fresh configuration, it's possible to inspect the available entr
 It's possible to inspect the changelog of a version by clicking on it:
 
 ![github-changelog](assets/github-changelog.png)
+=======
+```
+go run main.go
+```
+
+Visit: http://localhost:8080/
