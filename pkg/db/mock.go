@@ -14,3 +14,17 @@ func (m *MockDB) GetProjects() []model.Project {
 func (m *MockDB) GetProject(id uint) *model.Project {
 	return &model.Project{Name: "flatcar-linux/mantle"}
 }
+
+// GetVersionsForProjects returns the available version for a given project.
+func (m *MockDB) GetVersionsForProjects(id uint) []model.ProjectVersion {
+	return []model.ProjectVersion{
+		model.ProjectVersion{
+			ProjectID: id,
+			Version:   "v0.16.0",
+		},
+		model.ProjectVersion{
+			ProjectID: id,
+			Version:   "v0.17.0",
+		},
+	}
+}

@@ -9,4 +9,6 @@ type DB interface {
 	GetProjects() []model.Project
 	// GetProject returns a project by its ID.
 	GetProject(uint) *model.Project
+	// GetVersionsForProjects returns the available version for a given project.
+	GetVersionsForProjects(uint) []model.ProjectVersion
 }

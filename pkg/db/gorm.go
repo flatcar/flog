@@ -40,3 +40,8 @@ func (g *GormDB) GetProject(id uint) model.Project {
 	g.db.First(&project, id)
 	return project
 }
+
+func (g *GormDB) GetVersionsForProjects(id uint) []model.ProjectVersion {
+	// TODO: implement me :)
+	return nil
+}
