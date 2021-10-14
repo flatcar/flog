@@ -28,3 +28,8 @@ func (m *MockDB) GetVersionsForProjects(id uint) []model.ProjectVersion {
 		},
 	}
 }
+
+// GetConnector returns the connector for a project.
+func (m *MockDB) GetConnector(project string) string {
+	return "github"
+}

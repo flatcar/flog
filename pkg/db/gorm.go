@@ -45,3 +45,9 @@ func (g *GormDB) GetVersionsForProjects(id uint) []model.ProjectVersion {
 	// TODO: implement me :)
 	return nil
 }
+
+// GetConnector returns the connector for a project.
+func (g *GormDB) GetConnector(project string) string {
+	// TODO: implement me :)
+	return ""
+}
