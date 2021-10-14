@@ -7,6 +7,8 @@ import (
 type Project struct {
 	gorm.Model
 	Name string
+	// TODO: use enum
+	Connector string
 }
 
 type Changelog struct {
