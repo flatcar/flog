@@ -8,7 +8,6 @@ import (
 	"github.com/flatcar-linux/flog/app/model"
 	"github.com/flatcar-linux/flog/config"
 	"github.com/gorilla/mux"
-	"github.com/jinzhu/gorm"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
