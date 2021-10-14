@@ -2,12 +2,16 @@ package main
 
 import (
 	"github.com/flatcar-linux/flog/app"
-	"github.com/flatcar-linux/flog/config"
+	"github.com/flatcar-linux/flog/pkg/db"
 )
 
 func main() {
-	config := config.GetConfig()
+	// create the main app
 	app := &app.App{}
-	app.Initialize(config)
+
+	// create the DB repository
+	db := &db.MockDB{}
+
+	app.Initialize(db)
 	app.Run(":3000")
 }

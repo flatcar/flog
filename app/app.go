@@ -5,19 +5,16 @@ import (
 	"net/http"
 
 	"github.com/flatcar-linux/flog/app/handler"
-	"github.com/flatcar-linux/flog/app/model"
-	"github.com/flatcar-linux/flog/config"
+	"github.com/flatcar-linux/flog/pkg/db"
 	"github.com/gorilla/mux"
-	"gorm.io/driver/sqlite"
-	"gorm.io/gorm"
 )
 
 type App struct {
 	Router *mux.Router
-	DB     *gorm.DB
+	DB     db.DB
 }
 
-func (a *App) Initialize(config *config.Config) {
+func (a *App) Initialize(db db.DB) {
 	/* 	dbURI := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=%s&parseTime=True",
 		config.DB.Username,
 		config.DB.Password,
@@ -30,12 +27,12 @@ func (a *App) Initialize(config *config.Config) {
 
 	// TODO: Migrate to using the ORM layer in way that it intelligently understands DB Dialect
 	// and constructs the dbURI
-	db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{})
-	if err != nil {
-		log.Fatal("Could not connect database")
-	}
+	//db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{})
+	//if err != nil {
+	//	log.Fatal("Could not connect database")
+	//}
 
-	a.DB = model.DBMigrate(db)
+	a.DB = db
 	a.Router = mux.NewRouter()
 	a.setRouters()
 }
@@ -43,7 +40,12 @@ func (a *App) Initialize(config *config.Config) {
 // setRouters sets the all required routers
 func (a *App) setRouters() {
 	// Routing for handling the projects
+
+	// get all projects available
 	a.Get("/projects", a.handleRequest(handler.GetAllProjects))
+
+	// get changelog for a project
+	a.Get("/projects/{id}", a.handleRequest(handler.GetProject))
 
 	//a.Post("/projects", a.handleRequest(handler.CreateProject))
 	//a.Get("/projects/{title}", a.handleRequest(handler.GetProject))
@@ -78,7 +80,7 @@ func (a *App) Run(host string) {
 	log.Fatal(http.ListenAndServe(host, a.Router))
 }
 
-type RequestHandlerFunction func(db *gorm.DB, w http.ResponseWriter, r *http.Request)
+type RequestHandlerFunction func(db db.DB, w http.ResponseWriter, r *http.Request)
 
 func (a *App) handleRequest(handler RequestHandlerFunction) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {

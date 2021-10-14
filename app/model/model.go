@@ -20,8 +20,3 @@ type ProjectVersion struct {
 	project_id int64
 	version    string
 }
-
-func DBMigrate(db *gorm.DB) *gorm.DB {
-	db.AutoMigrate(&Project{}, &Changelog{}, &ProjectVersion{})
-	return db
-}
