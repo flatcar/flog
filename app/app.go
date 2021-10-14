@@ -33,7 +33,7 @@ func (a *App) Initialize(db db.DB) {
 	//}
 
 	a.DB = db
-	a.Router = mux.NewRouter()
+	a.Router = mux.NewRouter().UseEncodedPath()
 	a.setRouters()
 }
 
