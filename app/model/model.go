@@ -11,12 +11,12 @@ type Project struct {
 
 type Changelog struct {
 	gorm.Model
-	project_id int64
-	text       string
+	ProjectID uint
+	Text      string
 }
 
 type ProjectVersion struct {
 	gorm.Model
-	project_id int64
-	version    string
+	ProjectID uint
+	Version   string
 }
