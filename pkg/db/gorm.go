@@ -3,8 +3,8 @@ package db
 import (
 	"fmt"
 
-	"github.com/flatcar-linux/flog/app/model"
-	"github.com/flatcar-linux/flog/config"
+	"github.com/flatcar/flog/app/model"
+	"github.com/flatcar/flog/config"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"

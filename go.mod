@@ -1,4 +1,4 @@
-module github.com/flatcar-linux/flog
+module github.com/flatcar/flog
 
 go 1.15
 

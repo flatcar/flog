@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/flatcar-linux/flog/app/handler"
-	"github.com/flatcar-linux/flog/pkg/db"
+	"github.com/flatcar/flog/app/handler"
+	"github.com/flatcar/flog/pkg/db"
 	"github.com/gorilla/mux"
 )
 

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/flatcar-linux/flog/app"
-	"github.com/flatcar-linux/flog/pkg/db"
+	"github.com/flatcar/flog/app"
+	"github.com/flatcar/flog/pkg/db"
 )
 
 func main() {
