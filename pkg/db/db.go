@@ -1,6 +1,6 @@
 package db
 
-import "github.com/flatcar-linux/flog/app/model"
+import "github.com/flatcar/flog/app/model"
 
 // DB is the interface to implement to access the projects
 // and other entites.

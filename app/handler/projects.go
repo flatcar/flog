@@ -6,8 +6,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/flatcar-linux/flog/pkg/connector"
-	"github.com/flatcar-linux/flog/pkg/db"
+	"github.com/flatcar/flog/pkg/connector"
+	"github.com/flatcar/flog/pkg/db"
 
 	"github.com/gorilla/mux"
 )
